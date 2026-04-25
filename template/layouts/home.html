@@ -1,0 +1,21 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+{{ with .Sections }}
+	{{ $posts := (index . 0).RegularPagesRecursive | first 5 }}
+	<ul>
+		{{ range $posts }}
+			<li>
+				<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+				{{ with partial "helpers/get-featured-image.html" . }}
+					{{ $thumb := .Fill "300x200" }}
+					<img src="{{ $thumb.RelPermalink }}">
+				{{ end }}
+				<p>
+					{{ .Summary }}
+				</p>
+			</li>
+		{{ end }}
+	</ul>
+{{ end }}
+{{ end }}

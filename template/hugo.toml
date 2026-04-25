@@ -1,0 +1,14 @@
+baseURL       = "https://example.com/"
+title         = "My Hugo Site"
+description   = "A simple Hugo site for testing."
+summaryLength = 30
+
+# Remove what you want.
+disableKinds = ["taxonomy", "term", "404", "robotstxt", "rss", "sitemap"]
+
+[params.style.palette]
+    primary    = "#000000"
+    background = "#ffffff"
+    [params.style.palette.dark]
+        primary    = "#ffffff"
+        background = "#000000"

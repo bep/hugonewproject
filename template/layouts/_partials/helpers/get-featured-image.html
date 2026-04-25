@@ -1,0 +1,3 @@
+{{ $images := $.Resources.ByType "image" }}
+{{ $featured := or ($images.GetMatch "*feature*") ($images.GetMatch "{*cover*,*thumbnail*}") }}
+{{ return $featured }}
