@@ -1,0 +1,19 @@
+<ul class="posts">
+	{{- range . }}
+		<li class="post-row">
+			<h2 class="post-row__title">
+				<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+			</h2>
+			<p class="post-row__meta">
+				<time datetime="{{ .Date.Format `2006-01-02` }}">
+					{{- .Date | time.Format site.Params.dateFormat -}}
+				</time>
+				·
+				{{ .ReadingTime }} min read
+			</p>
+			{{- with .Summary }}
+				<p class="post-row__summary">{{ . | plainify | truncate 160 }}</p>
+			{{- end }}
+		</li>
+	{{- end }}
+</ul>

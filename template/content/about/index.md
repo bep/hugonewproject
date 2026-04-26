@@ -1,14 +1,8 @@
 ---
-title: About
+title: "About"
 weight: 20
 ---
 
-This is the about page. This is typically a page about the site owner, the site itself, or something else that doesn't fit into a section. It is a root page, and thus not part of any section. It is created with the `--page` flag in the CLI args.
+This is a small site. It collects a few things I have written, mostly to keep track of what I was thinking about at the time. There is no theme and no schedule.
 
-### Lorem ipsum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor, et posuere neque placerat non.
-
-- Vestibulum id ligula porta felis euismod semper.
-- Maecenas faucibus mollis interdum.
-- Aenean lacinia bibendum nulla sed consectetur.
+If you want to get in touch, the easiest way is by email.

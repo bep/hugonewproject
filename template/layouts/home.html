@@ -1,21 +1,26 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+<section class="intro">
+	<p class="intro__eyebrow">{{ now.Format "2006" }} · index</p>
+	<h1 class="intro__title">{{ .Title }}</h1>
+	{{- with .Summary }}
+		<p class="intro__description">{{ . }}</p>
+	{{- end }}
+</section>
 
-{{ with .Sections }}
-	{{ $posts := (index . 0).RegularPagesRecursive | first 5 }}
-	<ul>
-		{{ range $posts }}
-			<li>
-				<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-				{{ with partial "helpers/get-featured-image.html" . }}
-					{{ $thumb := .Fill "300x200" }}
-					<img src="{{ $thumb.RelPermalink }}">
-				{{ end }}
-				<p>
-					{{ .Summary }}
-				</p>
-			</li>
-		{{ end }}
-	</ul>
-{{ end }}
+{{- $main := index site.Home.Sections 0 }}
+{{- with $main }}
+	{{- $all := .RegularPagesRecursive }}
+	{{- if $all }}
+		{{- $n := 3 }}
+		{{- $posts := $all | first $n }}
+		{{ partial "list-posts.html" $posts }}
+		{{- if gt (len $all) $n }}
+			<p class="more-link">
+				<a href="{{ .RelPermalink }}">All entries →</a>
+			</p>
+		{{- end }}
+	{{- else }}
+		<p class="posts__empty">No entries yet.</p>
+	{{- end }}
+{{- end }}
 {{ end }}

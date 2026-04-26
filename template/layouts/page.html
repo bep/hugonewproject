@@ -3,4 +3,21 @@
 <section class="content">
 	{{ .Content }}
 </section>
+
+{{- if or .PrevInSection .NextInSection }}
+	<nav class="post-nav" aria-label="More posts">
+		{{- with .PrevInSection }}
+			<a class="post-nav__cell post-nav__cell--prev" href="{{ .RelPermalink }}">
+				<span class="post-nav__direction">← Older</span>
+				<span class="post-nav__title">{{ .LinkTitle }}</span>
+			</a>
+		{{- end }}
+		{{- with .NextInSection }}
+			<a class="post-nav__cell post-nav__cell--next" href="{{ .RelPermalink }}">
+				<span class="post-nav__direction">Newer →</span>
+				<span class="post-nav__title">{{ .LinkTitle }}</span>
+			</a>
+		{{- end }}
+	</nav>
+{{- end }}
 {{ end }}

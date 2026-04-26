@@ -5,10 +5,14 @@
 		<meta name="viewport" content="width=device-width" />
 		<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 		{{- with resources.Get "css/main.css" }}
+			{{- $target := slice "chrome115" "edge115" "firefox116" "ios16.4" "opera101" "safari16.4" }}
+			{{- $paletteName := site.Params.style.activePalette | default "calm" }}
+			{{- $palette := index site.Params.style.palette $paletteName }}
 			{{- $opts := dict
 				"minify" (cond hugo.IsDevelopment false true)
 				"sourceMap" (cond hugo.IsDevelopment "linked" "none")
-				"vars" site.Params.style.palette
+				"target" $target
+				"vars" $palette
 			}}
 			{{- with . | css.Build $opts }}
 				{{- if hugo.IsDevelopment }}
@@ -37,12 +41,12 @@
 		{{- end }}
 	</head>
 	<body>
-		{{ partialCached "header.html" . }}
+		{{ partial "header.html" . }}
 		<main>
 			{{ block "main" . }}{{ end }}
 		</main>
-		<footer>
-			<small class="muted">Copyright {{ now.Year }}. All rights reserved.</small>
+		<footer class="site-footer">
+			© {{ now.Year }} · {{ site.Title }}
 		</footer>
 	</body>
 </html>
