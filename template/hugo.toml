@@ -1,14 +1,88 @@
 baseURL       = "https://example.com/"
 title         = "My Hugo Site"
-description   = "A simple Hugo site for testing."
 summaryLength = 30
 
 # Remove what you want.
 disableKinds = ["taxonomy", "term", "404", "robotstxt", "rss", "sitemap"]
 
-[params.style.palette]
-    primary    = "#000000"
-    background = "#ffffff"
-    [params.style.palette.dark]
-        primary    = "#ffffff"
-        background = "#000000"
+[params]
+    description = "Notes on building, thinking out loud, and the occasional rabbit hole."
+
+    [params.style]
+        # Active palette. Edit this to switch.
+        # Available: "calm", "warm", "cool", "bold", "soft".
+        activePalette = "cool"
+
+        # ─── Palette presets ───
+        # Each preset defines bg/fg/muted/rule/accent for light mode,
+        # plus a [.dark] sub-table for the dark variant.
+
+        # calm — warm off-white, muted slate-blue accent. The default.
+        [params.style.palette.calm]
+            bg     = "oklch(98.8% 0.005 90)"
+            fg     = "oklch(22% 0.02 250)"
+            muted  = "oklch(52% 0.02 250)"
+            rule   = "oklch(90% 0.012 250)"
+            accent = "oklch(50% 0.10 245)"
+            [params.style.palette.calm.dark]
+                bg     = "oklch(15% 0.015 250)"
+                fg     = "oklch(92% 0.012 250)"
+                muted  = "oklch(62% 0.02 250)"
+                rule   = "oklch(28% 0.015 250)"
+                accent = "oklch(75% 0.09 245)"
+
+        # warm — cream/paper background, terracotta accent.
+        [params.style.palette.warm]
+            bg     = "oklch(97% 0.013 75)"
+            fg     = "oklch(20% 0.025 50)"
+            muted  = "oklch(50% 0.025 50)"
+            rule   = "oklch(88% 0.018 75)"
+            accent = "oklch(54% 0.13 40)"
+            [params.style.palette.warm.dark]
+                bg     = "oklch(15% 0.015 50)"
+                fg     = "oklch(91% 0.015 75)"
+                muted  = "oklch(62% 0.018 50)"
+                rule   = "oklch(28% 0.018 50)"
+                accent = "oklch(75% 0.11 40)"
+
+        # cool — pale blue-gray background, deep teal accent.
+        [params.style.palette.cool]
+            bg     = "oklch(98% 0.006 230)"
+            fg     = "oklch(22% 0.02 220)"
+            muted  = "oklch(52% 0.02 220)"
+            rule   = "oklch(89% 0.012 230)"
+            accent = "oklch(48% 0.10 200)"
+            [params.style.palette.cool.dark]
+                bg     = "oklch(14% 0.015 220)"
+                fg     = "oklch(92% 0.012 220)"
+                muted  = "oklch(62% 0.02 220)"
+                rule   = "oklch(27% 0.018 220)"
+                accent = "oklch(72% 0.10 200)"
+
+        # bold — true near-white, strong red-orange accent. Higher contrast.
+        [params.style.palette.bold]
+            bg     = "oklch(99% 0.003 60)"
+            fg     = "oklch(18% 0.012 30)"
+            muted  = "oklch(48% 0.015 30)"
+            rule   = "oklch(88% 0.01 30)"
+            accent = "oklch(55% 0.18 35)"
+            [params.style.palette.bold.dark]
+                bg     = "oklch(13% 0.012 30)"
+                fg     = "oklch(94% 0.008 30)"
+                muted  = "oklch(60% 0.018 30)"
+                rule   = "oklch(26% 0.015 30)"
+                accent = "oklch(72% 0.16 35)"
+
+        # soft — pale rose-gray background, dusty plum accent.
+        [params.style.palette.soft]
+            bg     = "oklch(97.5% 0.008 15)"
+            fg     = "oklch(22% 0.025 340)"
+            muted  = "oklch(53% 0.025 340)"
+            rule   = "oklch(88% 0.014 15)"
+            accent = "oklch(48% 0.10 330)"
+            [params.style.palette.soft.dark]
+                bg     = "oklch(15% 0.018 340)"
+                fg     = "oklch(92% 0.015 340)"
+                muted  = "oklch(62% 0.022 340)"
+                rule   = "oklch(28% 0.020 340)"
+                accent = "oklch(75% 0.09 330)"

@@ -61,4 +61,16 @@ Some additional requirements:
 * No external fonts or assets or frameworks.
 * The design should be responsive and look good on both desktop and mobile.
 
+## Design Context
+
+See `.impeccable.md` for project-level design context and `.impeccable-brief.md` for the locked feature-level template brief. Key points:
+
+- **Aesthetic:** modern technical — confident sans, tight rhythm, clear hierarchy, slight density. Closer to a well-made docs site than a magazine. Personality from precision, not flourish.
+- **Primary site type:** general-purpose (blog / small project / portfolio / notes), no single primary.
+- **Default theme:** light, with dark variant via `prefers-color-scheme: dark`.
+- **Anti-reference:** the generic Hugo starter look (sidebar + dated header + blue links + gray rounded cards). Avoid it.
+- **Hard constraints:** system fonts only (`system-ui`, `ui-serif`, `ui-monospace`), no frameworks, no remote assets, palette injected via `site.Params.style.palette` → CSS vars through `hugo:vars`.
+- **Three words for the brand:** confident, considered, undecorated.
+- **Design principles:** earn density; treat system fonts as a real palette; tokens are the public API; no widgets/chrome; light is the default mood; small token changes should noticeably shift the feel.
+
 

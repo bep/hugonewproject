@@ -5,8 +5,9 @@
 }
 
 body {
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 img,
@@ -23,6 +24,7 @@ button,
 textarea,
 select {
   font: inherit;
+  color: inherit;
 }
 
 p,
@@ -33,4 +35,9 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+ul,
+ol {
+  padding-inline-start: 0;
 }
